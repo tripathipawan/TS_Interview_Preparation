@@ -33,4 +33,28 @@ Mistakes I made:
 
 ---
 
+## Task 2 — Counter App
+
+A counter with Add, Sub, and Reset buttons that update a number display, built with TypeScript.
+
+What I built:
+- A number display starting at 0
+- Add button increases the count by 1
+- Sub button decreases the count by 1 (goes negative, no limit)
+- Reset button sets the count back to 0
+
+Things I learned:
+- `document.getElementById` returns a type that includes `null`, since TypeScript can't guarantee the element exists — using `as HTMLButtonElement` / `as HTMLElement` type assertions tells TypeScript the element will definitely be there
+- `.textContent` (and `.innerHTML`) only accept strings, not numbers — had to convert with `num.toString()` before assigning
+- Keeping a separate `num` variable as the source of truth, instead of reading the displayed text back out, makes the logic far more reliable
+- Reset needs to update both the state variable (`num = 0`) and the display — updating only the display would cause the next Add/Sub click to continue from the old value
+
+Mistakes I made:
+- Tried converting the `<span>` element itself with `Number(value)` — that doesn't work since `value` is an HTML element, not the number inside it
+- Assigned a `number` directly to `.innerHTML` without converting to a string first, which TypeScript correctly flagged as a type mismatch
+- Initially called `.addEventListener` on elements without handling the possibility of `null`, which TypeScript blocked until I added type assertions
+- Typed `cursor pointer` with a space instead of `cursor-pointer` in two of the three buttons — Tailwind silently ignores invalid class names instead of throwing an error, so the cursor styling quietly didn't apply
+
+---
+
 *More tasks coming daily.*

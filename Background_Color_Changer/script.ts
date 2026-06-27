@@ -1,7 +1,7 @@
-let btn = document.querySelectorAll('.btn');
+let btns = document.querySelectorAll<HTMLDivElement>('.btn');
 
-btn.forEach((e: Element)=>{
+btns.forEach((e: Element)=>{
   e.addEventListener('click',() => {
-  document.body.style.backgroundColor = e.innerHTML;
+  document.body.style.backgroundColor = e.textContent?.trim() ?? '';
 });
 })

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body class="w-full h-screen flex justify-center items-center bg-orange-900">
+
+  <div class="border-2 border-red-200 rounded p-5 text-center bg-blue-600">
+    <span class="text-[3rem] font-bold" id="value">0</span>
+    <div class="mt-4">
+      <button
+        class="btn border border-blue-300 p-4 text-[1.2rem] font-bold rounded bg-green-800 text-white hover:bg-green-400 hover:text-black transition-all duration-500 cursor-pointer"
+        id="add">Add</button>
+      <button
+        class="btn border border-blue-300 p-4 text-[1.2rem] font-bold rounded bg-red-800 text-white hover:bg-red-400 hover:text-black transition-all duration-500 cursor-pointer"
+        id="sub">Sub</button>
+      <button
+        class="btn border border-blue-300 p-4 text-[1.2rem] font-bold rounded bg-orange-800 text-white hover:bg-orange-400 hover:text-black transition-all duration-500 cursor-pointer"
+        id="reset">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
