@@ -57,4 +57,29 @@ Mistakes I made:
 
 ---
 
+## Task 3 — Show / Hide Password
+
+A password input field with a toggle button that switches between showing and hiding the typed password, built with TypeScript.
+
+What I built:
+- A password input field (hidden by default with dots)
+- A toggle button labeled "Show" / "Hide"
+- Clicking the button switches the input's type between `password` and `text`
+- The button label updates to reflect the current state
+
+Things I learned:
+- Changing an input's visibility is just changing its `type` attribute — `input.type = "text"` reveals it, `input.type = "password"` hides it again
+- `as HTMLInputElement` is needed (not just `HTMLElement`) because the `.type` property used to switch between password/text is only available on `HTMLInputElement`
+- Forgetting to link the compiled `script.js` in the HTML means none of the TypeScript logic runs at all, even if the code itself has zero errors — always double check the `<script>` tag is actually in the file
+- `=` assigns a value, `===` only compares — mixing them up means the code "checks" something but never actually changes it
+
+Mistakes I made:
+- Used `===` instead of `=` when trying to change `input.type`, so the type was being compared instead of actually updated
+- Tried to read the password's value using `.textContent`, which doesn't work on `<input>` elements — that's for elements like `<div>` or `<span>`
+- Set `input.type === "String"` (a typo of `"text"`, and also using `===` instead of `=`) — neither the value nor the operator was correct
+- Had the show/hide logic flipped at first — labeling the button incorrectly relative to whether the password was currently visible or hidden
+- Forgot to add the `<script src="script.js"></script>` tag in the HTML entirely, so the page loaded with no JavaScript running despite the TypeScript code being correct
+
+---
+
 *More tasks coming daily.*
