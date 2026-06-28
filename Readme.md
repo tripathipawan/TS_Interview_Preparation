@@ -128,4 +128,27 @@ Mistakes I made:
 
 ---
 
+## Task 6 — Random Quote Generator
+
+A quote box that displays a random quote (with its author) from a fixed collection every time the "New Quote" button is clicked, built with TypeScript.
+
+What I built:
+- A card showing a quote and its author
+- A "New Quote" button that picks and displays a random quote from an array of 8
+- Each quote includes an id, text, and author
+
+Things I learned:
+- An `interface` only defines the shape of a single object, not the whole array — typing the array itself needs `Quote[]` (the interface name followed by `[]`), separate from the interface definition
+- The interface name and the type used to annotate the array must match exactly, including capitalization — `interface Quote` and `const quotes: Quote[]` only works because the names match character for character
+- `Math.random()` alone only gives a decimal between 0 and 1 — multiplying it by `array.length` and then using `Math.floor()` to round down gives a valid, usable array index
+- Once an array is typed (`Quote[]`), accessing any item from it (like `quotes[data]`) is automatically typed as `Quote` too — TypeScript carries the type through automatically, no extra work needed
+- Naming convention matters for readability: interfaces are capitalized (`Quote`), while the actual data using that shape is lowercase (`quotes`) — using the same casing for both can work but invites naming collisions and confusion
+
+Mistakes I made:
+- First tried to write `interface quotes: array[...]`, which isn't valid syntax — an interface describes one object's shape, not an array type
+- Named the interface `quotes` (lowercase) but then tried to use `Quote` (capital) to type the array, causing a "Cannot find name 'Quote'" error since the names didn't match
+- Called `Math.random()` by itself without multiplying by the array length or applying `Math.floor()`, which doesn't give a usable index on its own
+
+---
+
 *More tasks coming daily.*
