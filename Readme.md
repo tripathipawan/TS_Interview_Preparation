@@ -103,4 +103,29 @@ Mistakes I made:
 
 ---
 
+## Task 5 — Digital Clock
+
+A live digital clock showing hours, minutes, seconds with AM/PM, along with the current date, built with TypeScript.
+
+What I built:
+- A clock that updates every second (HH:MM:SS format)
+- AM/PM indicator based on the time of day
+- Current date displayed (day/month/year)
+
+Things I learned:
+- `new Date()` must be created *inside* `setInterval`'s callback, not outside it — otherwise it captures the time once at page load and never updates, since `setInterval` only re-runs the function body, not the variable declarations outside it
+- `setInterval(callback, 1000)` runs the callback every 1000ms (1 second), which is exactly the refresh rate a clock needs
+- `.getHours()` returns 24-hour format (0-23), so converting to 12-hour display needs explicit logic: hour 0 (midnight) becomes 12, and any hour above 12 gets 12 subtracted
+- `.getMonth()` is zero-indexed (January = 0, December = 11), so the displayed month always needs `+ 1` added to match how humans count months
+- AM/PM must be decided using the *original* 24-hour value, before converting it to 12-hour format — deciding it after conversion would lose the information needed to tell AM from PM
+- Padding single digits with a leading zero (`5` → `"05"`) needs converting the number to a string first, since `.textContent` only accepts strings — and repeating the same `if/else` for every field (hour, minute, second, day, month) is a good case for writing one reusable `pad()` function instead
+
+Mistakes I made:
+- Displayed the hour using its raw 24-hour value before converting it to 12-hour format, because the conversion logic was written *after* the line that already set `hour.textContent` — order of operations mattered here
+- Combined checks for seconds, minutes, and hours into a single `if (sec < 10 || min < 10 || hou < 10)` block, which padded all three together even when only one of them actually needed padding — each field needed its own independent check
+- Assigned numbers directly to `.textContent` multiple times (date, month, year) without converting them to strings first
+- Forgot to add `+ 1` to `.getMonth()`, which would have displayed June as "5" instead of "6"
+
+---
+
 *More tasks coming daily.*
