@@ -82,4 +82,25 @@ Mistakes I made:
 
 ---
 
+## Task 4 — Character Counter
+
+A textarea with a live character counter that updates as the user types, with a maximum length limit, built with TypeScript.
+
+What I built:
+- A textarea where the user can type freely
+- A live counter showing current characters typed out of a 300 character max (e.g. "45/300")
+- Typing is blocked once the 300 character limit is reached
+
+Things I learned:
+- The `'input'` event fires on every keystroke, making it the right choice for live updates — unlike `'click'`, which only fires on clicks
+- `as HTMLTextAreaElement` is needed for `<textarea>` elements specifically, separate from `HTMLInputElement` which is for `<input>` tags
+- The HTML `maxlength` attribute can enforce a character limit directly in the browser, with zero TypeScript needed — useful to know when a problem doesn't actually need custom logic
+- `.value.length` gives the number of characters typed, but it returns a `number` — and since `.textContent` only accepts strings, it needs `.toString()` (or a template string) before being assigned
+
+Mistakes I made:
+- Assigned `box.value.length` directly to `.textContent` without converting it to a string first, which TypeScript flagged as a type mismatch — same kind of mistake made in Task 2's Counter App
+- Misused `.slice(250)` thinking it would keep "the first 250 characters" — it actually does the opposite, returning everything *after* index 250, which is empty or near-empty for short text. The correct range for "first 250 characters" would have been `.slice(0, 250)`
+
+---
+
 *More tasks coming daily.*

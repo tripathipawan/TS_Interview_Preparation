@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Counter App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body class="w-full h-screen flex justify-center items-center bg-[#140000]">
+  <div class="border-2 border-[#e36d6d] bg-[#1a0000] rounded-xl p-6 text-center shadow-lg">
+    <textarea name="" id="box" placeholder="Enter your words...."
+      class="border border-[#e36d6d] bg-[#140000] text-[#e0b1b1] font-bold text-[1.2rem] p-4 rounded-lg w-90 h-80 resize-y focus:outline-none focus:ring-2 focus:ring-[#e36d6d] placeholder-[#7a4444]" maxlength="300"></textarea>
+    <p class="text-[1.1rem] font-bold mt-3 text-[#e0b1b1]">
+      <span id="num">0</span>/300
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
