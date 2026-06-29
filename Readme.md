@@ -151,4 +151,32 @@ Mistakes I made:
 
 ---
 
+## Task 7 — Simple Calculator
+
+A calculator with two number inputs and four operation buttons (+, -, ×, ÷) that displays the result, built with TypeScript.
+
+What I built:
+- Two number input fields
+- Four buttons for addition, subtraction, multiplication, and division
+- A result display that updates based on the clicked operation
+- A divide-by-zero check that shows an error message instead of crashing or showing `Infinity`
+- Result rounded to 2 decimal places for clean display
+
+Things I learned:
+- Reading input values inside the click listener (not outside it) is essential — values must be read fresh at the moment of the click, the same lesson learned with `new Date()` in the Digital Clock task
+- `.value` on an input is only typed correctly when the element is cast `as HTMLInputElement`, not generic `HTMLElement`
+- Repeating the same input-reading and result-display code across four separate event listeners is a sign the logic can be consolidated — using a shared class on all operation buttons, selecting them with `querySelectorAll`, and looping with `forEach` removes that duplication entirely
+- Inside the `forEach` loop, checking `btn.id` lets one shared click handler decide which operation to run based on which specific button was clicked
+- Dividing numbers in JavaScript/TypeScript often produces long floating-point results (like `1.3333333333333333`) — `.toFixed(2)` rounds it to a clean 2-decimal string, and conveniently returns a string directly, so no extra template-string wrapping is needed
+- A Tailwind CDN console warning about production use is just a reminder, not an error — irrelevant for a learning project that isn't being deployed live
+
+Mistakes I made:
+- Initially used `<span>` elements for the number inputs instead of `<input type="number">` — spans aren't editable, so the user had no way to type a value into them
+- Had a duplicate, unused `<span class="value2">?</span>` left in the HTML alongside the actual `value2` input, creating a naming collision
+- Read `value1.value` and `value2.value` outside the click listeners, so the calculator always used stale (empty) values instead of whatever the user had actually typed
+- Assigned a `number` directly to `.textContent` without converting it to a string first, the same mistake made in earlier tasks
+- Displayed long, unrounded decimal results (e.g. `1.3333333333333333`) before adding `.toFixed(2)` to clean up the output
+
+---
+
 *More tasks coming daily.*

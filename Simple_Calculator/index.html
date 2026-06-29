@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body class="h-screen w-full bg-[#0c000fdb] flex justify-center items-center">
+  <div class="border-2 border-[#d5acdfdb] rounded-lg p-6 bg-[#b036ce2e] text-center">
+    <div class="border-b-2 pb-4 border-[#d5acdfdb] font-bold text-[2rem] text-[#d6b5de]">
+      <input type="number" placeholder="Number 1" class="value1 border-2 p-2 rounded-lg w-20 text-[1.5rem] bg-[#0c000fdb]" />
+      <input type="number" placeholder="Number 2" class="value2 border-2 p-2 rounded-lg w-24 text-[1.5rem] bg-[#0c000fdb]" />
+    </div>
+    <div class="border-b-2 py-4 border-[#d5acdfdb] font-bold text-[2rem] text-[#d6b5de]">
+      <span id="add" class="btn border-2 p-2 rounded-lg bg-[#d6b5de] text-[#0c000fdb] cursor-pointer">+</span>
+      <span id="sub" class="btn border-2 p-2 rounded-lg bg-[#d6b5de] text-[#0c000fdb] cursor-pointer">-</span>
+      <span id="mul" class="btn border-2 p-2 rounded-lg bg-[#d6b5de] text-[#0c000fdb] cursor-pointer">X</span>
+      <span id="div" class="btn border-2 p-2 rounded-lg bg-[#d6b5de] text-[#0c000fdb] cursor-pointer">/</span>
+    </div>
+    <div class="font-bold text-[2rem] text-[#d6b5de]">
+      <h2>Result: <span class="ans">?</span></h2>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
