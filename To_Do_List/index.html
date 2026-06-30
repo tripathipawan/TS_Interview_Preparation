@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body class="h-screen w-full bg-[#0c000fdb] flex justify-center items-center">
+  <div class="border-2 border-[#d7c7e3] rounded p-4 bg-[#482f5b]">
+    <div class="mb-4">
+      <input id="input" type="text" class="bg-[#0c000fdb] rounded border-2 border-[#d7c7e3] text-[1.2rem] font-bold text-[#d7c7e3] p-2" placeholder="Enter your task...">
+      <button id="addbtn" class="border-2 border-green-500 bg-green-700 p-3 rounded font-bold ml-2 cursor-pointer text-[#d7c7e3]">Add</button>
+    </div>
+    <div id="task-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

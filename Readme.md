@@ -179,4 +179,31 @@ Mistakes I made:
 
 ---
 
+## Task 8 — To-Do List
+
+A dynamic to-do list where tasks can be added via an input field and deleted individually, built with TypeScript.
+
+What I built:
+- A text input and "Add" button to create new tasks
+- A dynamic task list where each task has its own "Delete" button
+- Empty input validation — nothing happens if the user tries to add a blank task
+- Tasks stored in a typed array as the single source of truth, with the UI rebuilt from it on every change
+
+Things I learned:
+- The "source of truth" pattern — keeping all data in a typed `Todo[]` array and rebuilding the UI from it every time (`renderTodos()`), rather than reading data back out of the DOM. This makes the data and UI always stay in sync
+- `document.createElement` dynamically creates HTML elements from TypeScript — this is how real apps build lists, not by hard-coding HTML for each item
+- `appendChild` attaches a created element inside a parent element in the DOM
+- `taskList.innerHTML = ''` clears the container before rebuilding it — without this, tasks would keep stacking up instead of refreshing
+- `Date.now()` returns a unique number every millisecond, making it a simple way to generate unique IDs for each task
+- `input.value.trim()` removes leading/trailing spaces before checking if the input is empty — without `trim()`, a task with just spaces would pass the empty check and get added
+- `todos.splice(index, 1)` removes one item at a specific index from an array — finding the index first with `findIndex()` by matching `id` is what makes this precise (not position-dependent)
+- A delete button must be created dynamically alongside each task (via `createElement`), not hard-coded once in HTML — one fixed delete button in HTML can't know which task to delete
+
+Mistakes I made:
+- Initially hard-coded a task (`<div>Milk</div>`) and one global delete button directly in the HTML — this approach doesn't scale to multiple tasks and makes dynamic deletion impossible
+- Used `task.innerHTML = input.value` to display the task, which just overwrites the same element each time instead of adding to a list
+- Selected a delete button with `getElementById` from HTML before understanding that each task needs its own dynamically created delete button
+
+---
+
 *More tasks coming daily.*
