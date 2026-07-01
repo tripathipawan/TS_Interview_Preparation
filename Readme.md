@@ -205,5 +205,30 @@ Mistakes I made:
 - Selected a delete button with `getElementById` from HTML before understanding that each task needs its own dynamically created delete button
 
 ---
+ 
+ ## Task 9 — Image Slider
+
+A slider that cycles through 5 images using Next and Prev buttons with looping behavior, built with TypeScript.
+
+What I built:
+- 5 images loaded from picsum.photos
+- Next and Prev buttons to navigate between images
+- Loop behavior — Next on the last image goes back to the first, Prev on the first image goes to the last
+- Only one image visible at a time, rest hidden via `display: none`
+
+Things I learned:
+- `querySelectorAll` returns `NodeListOf<Element>`, and `.style` is not available on the generic `Element` type — casting each element with `(e as HTMLElement)` inside the `forEach` is needed to access `.style.display`
+- The modulo `%` operator handles the Next loop cleanly: `(currentIndex + 1) % images.length` automatically wraps back to 0 after the last image
+- Prev loop needs a `+ images.length` trick before the modulo: `(currentIndex - 1 + images.length) % images.length` — without it, `(0 - 1) % 5` gives `-1` in JavaScript (not `4`), so the loop breaks going backwards
+- A `showImg()` function that first hides all images then shows only the current one is a clean, reusable pattern — both buttons just update `currentIndex` and call the same function, no repeated logic
+- Calling `showImg()` once on page load (before any button is clicked) ensures the first image is visible immediately instead of all 5 showing at once
+
+Mistakes I made:
+- Typed `.perv` instead of `.prev` when selecting the Prev button — Tailwind and `querySelector` both silently fail on wrong class names, so the button did nothing without any obvious error
+- Used `&` (bitwise AND) instead of `%` (modulo) for the index calculation — `&` is a binary operator, not a loop/wrap operator, so the index wasn't cycling correctly
+- Forgot the event name `'click'` in `addEventListener` — passing only a callback without the event type string causes a TypeScript error since both arguments are required
+- Used `(currentIndex - 1) % imgs.length` for Prev without adding `imgs.length` first — this produced `-1` when on the first image, breaking the backwards loop
+
+---
 
 *More tasks coming daily.*

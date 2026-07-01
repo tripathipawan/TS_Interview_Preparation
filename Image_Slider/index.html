@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body class="h-screen w-full bg-[#0a0a0a] flex justify-center items-center">
+
+  <div class="border-2 border-[#555] rounded-xl p-4 bg-[#1a1a1a] text-center w-[640px]">
+
+    <div class="mb-4">
+      <img class="img rounded-lg w-full object-cover" alt="img1" src="https://picsum.photos/seed/1/600/300">
+      <img class="img rounded-lg w-full object-cover" alt="img2" src="https://picsum.photos/seed/2/600/300">
+      <img class="img rounded-lg w-full object-cover" alt="img3" src="https://picsum.photos/seed/3/600/300">
+      <img class="img rounded-lg w-full object-cover" alt="img4" src="https://picsum.photos/seed/4/600/300">
+      <img class="img rounded-lg w-full object-cover" alt="img5" src="https://picsum.photos/seed/5/600/300">
+    </div>
+
+    <div class="flex justify-between mt-2">
+      <button class="prev border-2 border-[#555] bg-[#2a2a2a] text-white px-6 py-2 rounded-lg font-bold cursor-pointer hover:bg-[#444] transition-all duration-300">← Prev</button>
+      <button class="next border-2 border-[#555] bg-[#2a2a2a] text-white px-6 py-2 rounded-lg font-bold cursor-pointer hover:bg-[#444] transition-all duration-300">Next →</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
