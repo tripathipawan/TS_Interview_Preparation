@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Toggle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+
+  </style>
+</head>
+
+<body id="body" class="h-screen w-full flex justify-center items-center bg-[#0a0a0a] isdark:bg-[#fff] transition-all duration-500">
+
+  <div id="card" class="border-2 border-[#555] rounded-xl p-8 bg-[#1a1a1a] text-center w-[400px] transition-all duration-500">
+
+    <div class="text-[4rem] mb-4">🌙</div>
+    <h1 id="title" class="text-[2rem] font-bold text-white mb-2 transition-all duration-500">Hello, World!</h1>
+    <p id="desc" class="text-[1rem] text-[#aaa] mb-6 transition-all duration-500">
+      This is a dark/light theme toggle built with TypeScript and Tailwind CSS.
+    </p>
+    <button id="toggleBtn"
+      class="border-2 border-[#555] bg-[#2a2a2a] text-white px-6 py-3 rounded-lg font-bold cursor-pointer hover:bg-[#444] transition-all duration-300 text-[1.1rem]">
+      ☀️ Light Mode
+    </button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
